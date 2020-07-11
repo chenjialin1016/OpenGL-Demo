@@ -173,12 +173,13 @@ int main(int argc, char* argv[])
     glutDisplayFunc(RenderScene);
     
     //添加右击菜单栏
+    //添加右击菜单栏
     glutCreateMenu(ProcessMenu);
-    glutAddMenuEntry("Toggle depth test",1);
-    glutAddMenuEntry("Toggle cull backface",2);
-    glutAddMenuEntry("Set Fill Mode", 3);
-    glutAddMenuEntry("Set Line Mode", 4);
-    glutAddMenuEntry("Set Point Mode", 5);
+    glutAddMenuEntry("深度测试",1);
+    glutAddMenuEntry("正背面剔除",2);
+    glutAddMenuEntry("颜色填充", 3);
+    glutAddMenuEntry("线填充", 4);
+    glutAddMenuEntry("点填充", 5);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
     
     GLenum err = glewInit();
