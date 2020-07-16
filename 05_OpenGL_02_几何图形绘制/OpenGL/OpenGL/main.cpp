@@ -121,7 +121,7 @@ void SetupRC()
      */
     //圆柱体，从0开始向Z轴正方向延伸。
     //圆锥体，是一端的半径为0，另一端半径可指定。
-    gltMakeCylinder(coneBatch, 2.0f, 0.0f, 3.0f, 13, 2);
+    gltMakeCylinder(coneBatch, 0.0f, 2.0f, 3.0f, 13, 2);
     
     // 磁盘
     /*

@@ -124,8 +124,11 @@ void RenderScene(void)
     
     //矩阵相乘
     m3dMatrixMultiply44(mModelView, mTranslate, mRotate);
-    //mvp是有顺序的：结果-p-mv
+    //mvp是有顺序的：结果-p-mv，不满足交换律
     m3dMatrixMultiply44(mModelViewProjection, viewFrustum.GetProjectionMatrix(), mModelView);
+    
+    GLfloat vBlack[] = {0,0,0,1};
+    shaderManager.UseStockShader(GLT_SHADER_FLAT, mModelViewProjection, vBlack);
     
     sphereBatch.Draw();
     glutSwapBuffers();
