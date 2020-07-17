@@ -119,13 +119,16 @@ void RenderScene(void)
     
     //往z轴移动-2.5f
     m3dTranslationMatrix44(mTranslate, 0, 0, -2.5f);
+    
+    
     //围绕y轴旋转
     m3dRotationMatrix44(mRotate, m3dDegToRad(yRot), 0, 1, 0);
     
     //矩阵相乘
     m3dMatrixMultiply44(mModelView, mTranslate, mRotate);
     //mvp是有顺序的：结果-p-mv，不满足交换律
-    m3dMatrixMultiply44(mModelViewProjection, viewFrustum.GetProjectionMatrix(), mModelView);
+//    m3dMatrixMultiply44(mModelViewProjection, viewFrustum.GetProjectionMatrix(), mModelView);
+    m3dMatrixMultiply44(mModelViewProjection, mModelView, viewFrustum.GetProjectionMatrix());
     
     GLfloat vBlack[] = {0,0,0,1};
     shaderManager.UseStockShader(GLT_SHADER_FLAT, mModelViewProjection, vBlack);
