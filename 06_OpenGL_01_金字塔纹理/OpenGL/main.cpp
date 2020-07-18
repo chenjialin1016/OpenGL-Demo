@@ -34,7 +34,8 @@ GLuint              textureID;
 M3DMatrix44f        shadowMatrix;
 
 //绘制金字塔
-void MakePyramid(GLBatch& pyramidBatch){
+void MakePyramid(GLBatch& pyramidBatch)
+{
     
     /*1、通过pyramidBatch组建三角形批次
      参数1：类型
@@ -42,17 +43,9 @@ void MakePyramid(GLBatch& pyramidBatch){
      参数3：这个批次中将会应用1个纹理
      注意：如果不写这个参数，默认为0。
     */
-//    MARK:--QUES:参数3 是指 纹理资源数？？？
     pyramidBatch.Begin(GL_TRIANGLES, 18, 1);
     
     /***前情导入
-    
-    1)设置法线
-    void Normal3f(GLfloat x, GLfloat y, GLfloat z);
-    Normal3f：添加一个表面法线（法线坐标 与 Vertex顶点坐标中的Y轴一致）
-    表面法线是有方向的向量，代表表面或者顶点面对的方向（相反的方向）。在多数的关照模式下是必须使用。后面的课程会详细来讲法线的应用
-    
-    pyramidBatch.Normal3f(X,Y,Z);
     
     2)设置纹理坐标
     void MultiTexCoord2f(GLuint texture, GLclampf s, GLclampf t);
@@ -67,12 +60,6 @@ void MakePyramid(GLBatch& pyramidBatch){
      void Vertex3fv(M3DVector3f vVertex);
     向三角形批次类添加顶点数据(x,y,z);
      pyramidBatch.Vertex3f(-1.0f, -1.0f, -1.0f);
-    
-    
-    4)获取从三点找到一个法线坐标(三点确定一个面)
-    void m3dFindNormal(result,point1, point2,point3);
-    参数1：结果
-    参数2-4：3个顶点数据
     */
     
     //塔顶
@@ -84,95 +71,69 @@ void MakePyramid(GLBatch& pyramidBatch){
     M3DVector3f n;
     
     //金字塔底部 = 三角形x + 三角形y
-    //找到三角形x的法线, 顶点设置法线、纹理坐标，批次类添加纹理数据
-    m3dFindNormal(n, vBackLeft, vBackRight, vFrontRight);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackLeft);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackRight);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 1.0f);
     pyramidBatch.Vertex3fv(vFrontRight);
     
     //三角形Y =(vFrontLeft,vBackLeft,vFrontRight)
-    //找到三角形y的法线, 顶点设置法线、纹理坐标，批次类添加纹理数据
-    m3dFindNormal(n, vFrontLeft, vBackLeft, vFrontRight);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 1.0f);
     pyramidBatch.Vertex3fv(vFrontLeft);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackLeft);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 1.0f);
     pyramidBatch.Vertex3fv(vFrontRight);
     
     //金字塔前面 （Apex，vFrontLeft，vFrontRight）
-    m3dFindNormal(n, vApex, vFrontLeft, vFrontRight);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.5f, 1.0f);
     pyramidBatch.Vertex3fv(vApex);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vFrontLeft);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 0.0f);
     pyramidBatch.Vertex3fv(vFrontRight);
     
     //金字塔左边 （vApex, vBackLeft, vFrontLeft）
-    m3dFindNormal(n, vApex, vBackLeft, vFrontLeft);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.5f, 1.0f);
     pyramidBatch.Vertex3fv(vApex);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackLeft);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vFrontLeft);
     
     
     //金字塔右边 （vApex, vFrontRight, vBackRight）
-    m3dFindNormal(n, vApex, vFrontRight, vBackRight);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.5f, 1.0f);
     pyramidBatch.Vertex3fv(vApex);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 0.0f);
     pyramidBatch.Vertex3fv(vFrontRight);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackRight);
     
     //金字塔后边 （vApex, vBackRight, vBackLeft）
-    m3dFindNormal(n, vApex, vBackRight, vBackLeft);
     //vBackLeft
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.5f, 1.0f);
     pyramidBatch.Vertex3fv(vApex);
     //vBackRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 0.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackRight);
     //vFrontRight
-    pyramidBatch.Normal3fv(n);
     pyramidBatch.MultiTexCoord2f(0, 1.0f, 0.0f);
     pyramidBatch.Vertex3fv(vBackLeft);
     
@@ -180,7 +141,8 @@ void MakePyramid(GLBatch& pyramidBatch){
 }
 
 //将TGA文件加载为2D纹理
-bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode){
+bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode)
+{
     
     GLbyte *pBits;
     int nWidth, nHeight, nComponents;
@@ -227,7 +189,16 @@ bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, 
     //使用完毕释放pBits
     free(pBits);
     
-//    //4.加载Mip,纹理生成所有的Mip层
+    //只有minFilter 等于以下四种模式，才可以生成Mip贴图
+    //GL_NEAREST_MIPMAP_NEAREST具有非常好的性能，并且闪烁现象非常弱
+    //GL_LINEAR_MIPMAP_NEAREST常常用于对游戏进行加速，它使用了高质量的线性过滤器
+    //GL_LINEAR_MIPMAP_LINEAR 和GL_NEAREST_MIPMAP_LINEAR 过滤器在Mip层之间执行了一些额外的插值，以消除他们之间的过滤痕迹。
+    //GL_LINEAR_MIPMAP_LINEAR 三线性Mip贴图。纹理过滤的黄金准则，具有最高的精度。
+//    if(minFilter == GL_LINEAR_MIPMAP_LINEAR ||
+//       minFilter == GL_LINEAR_MIPMAP_NEAREST ||
+//       minFilter == GL_NEAREST_MIPMAP_LINEAR ||
+//       minFilter == GL_NEAREST_MIPMAP_NEAREST)
+//    //4.纹理生成所有的Mip层
 //    //参数：GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D
 //    glGenerateMipmap(GL_TEXTURE_2D);
     
@@ -251,6 +222,8 @@ void SetupRC()
     //参数2&参数3：需要缩小&放大的过滤器
     //参数4：纹理坐标环绕模式
 //     LoadTGATexture("stone.tga", GL_LINEAR_MIPMAP_NEAREST, GL_LINEAR, GL_CLAMP_TO_EDGE);
+//    GL_LINEAR_MIPMAP_NEAREST：在最邻近mip层，并执行最邻近过滤--
+//    GL_LINEAR 线性过滤
     LoadTGATexture("stone.tga", GL_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE);
     
     
@@ -292,18 +265,14 @@ void RenderScene()
     //绑定纹理
     glBindTexture(GL_TEXTURE_2D, textureID);
     
-    /*5.点光源着色器
-    参数1：GLT_SHADER_TEXTURE_POINT_LIGHT_DIFF（着色器标签）
-    参数2：模型视图矩阵
-    参数3：投影矩阵
-    参数4：视点坐标系中的光源位置
-    参数5：基本漫反射颜色
-    参数6：图形颜色（用纹理就不需要设置颜色。设置为0）
+    //5.纹理替换矩阵着色器
+    /*
+    参数1：GLT_SHADER_TEXTURE_REPLACE（着色器标签）
+    参数2：模型视图投影矩阵
+    参数3：纹理层
     */
-   shaderManager.UseStockShader(GLT_SHADER_TEXTURE_POINT_LIGHT_DIFF,
-    transformPipeline.GetModelViewMatrix(),
-    transformPipeline.GetProjectionMatrix(),
-    vLightPos, vWhite, 0);
+   shaderManager.UseStockShader(GLT_SHADER_TEXTURE_REPLACE,
+    transformPipeline.GetModelViewProjectionMatrix(),0);
     
     //绘制金字塔
     pyramidBatch.Draw();
