@@ -141,10 +141,10 @@ void SetupRC()
     
     //9、TGA加载为2D纹理
     glBindTexture(GL_TEXTURE_2D, uiTextures[0]);
-    LoadTGATexture("marble.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_REPEAT);
+    LoadTGATexture("floor_01.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_REPEAT);
     
     glBindTexture(GL_TEXTURE_2D, uiTextures[1]);
-    LoadTGATexture("marslike.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE);
+    LoadTGATexture("circle.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE);
     
     glBindTexture(GL_TEXTURE_2D, uiTextures[2]);
     LoadTGATexture("moonlike.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE);
@@ -190,7 +190,7 @@ void drawSomething(GLfloat yRot)
 void RenderScene(void)
 {
   //1、地板颜色值
-    static GLfloat vFloorColor[] = {1.0f, 1.0f, 0.0f, 0.75f};
+    static GLfloat vFloorColor[] = {0.3f, 0.3f, 0.3f, 0.75f};
     
     //2、基于时间动画
     static CStopWatch rotTimer;

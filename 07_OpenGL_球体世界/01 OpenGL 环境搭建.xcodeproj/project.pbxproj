@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05B28CFA24CAE30700A5D348 /* crackling_paint01.tga in Resources */ = {isa = PBXBuildFile; fileRef = 05B28CF924CAE30700A5D348 /* crackling_paint01.tga */; };
+		05B28CFE24CAE55300A5D348 /* circle.tga in Resources */ = {isa = PBXBuildFile; fileRef = 05B28CFD24CAE55300A5D348 /* circle.tga */; };
+		05B28D0224CAE5FB00A5D348 /* floor.tga in Resources */ = {isa = PBXBuildFile; fileRef = 05B28D0124CAE5FA00A5D348 /* floor.tga */; };
+		05B28D0524CAE6D000A5D348 /* floor_01.tga in Resources */ = {isa = PBXBuildFile; fileRef = 05B28D0424CAE6D000A5D348 /* floor_01.tga */; };
 		D681B0EB1FD02EC20025EA29 /* Marble.tga in Resources */ = {isa = PBXBuildFile; fileRef = D681B0E81FD02EC20025EA29 /* Marble.tga */; };
 		D681B0EC1FD02EC20025EA29 /* Marslike.tga in Resources */ = {isa = PBXBuildFile; fileRef = D681B0E91FD02EC20025EA29 /* Marslike.tga */; };
 		D681B0ED1FD02EC20025EA29 /* MoonLike.tga in Resources */ = {isa = PBXBuildFile; fileRef = D681B0EA1FD02EC20025EA29 /* MoonLike.tga */; };
@@ -38,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B28CF924CAE30700A5D348 /* crackling_paint01.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = crackling_paint01.tga; sourceTree = "<group>"; };
+		05B28CFD24CAE55300A5D348 /* circle.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = circle.tga; sourceTree = "<group>"; };
+		05B28D0124CAE5FA00A5D348 /* floor.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = floor.tga; sourceTree = "<group>"; };
+		05B28D0324CAE65A00A5D348 /* smallSphere.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = smallSphere.tga; sourceTree = "<group>"; };
+		05B28D0424CAE6D000A5D348 /* floor_01.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = floor_01.tga; sourceTree = "<group>"; };
 		D681B0E81FD02EC20025EA29 /* Marble.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Marble.tga; sourceTree = "<group>"; };
 		D681B0E91FD02EC20025EA29 /* Marslike.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Marslike.tga; sourceTree = "<group>"; };
 		D681B0EA1FD02EC20025EA29 /* MoonLike.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = MoonLike.tga; sourceTree = "<group>"; };
@@ -136,9 +145,14 @@
 		D6CFA63A1F546B5D00FD9232 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05B28D0324CAE65A00A5D348 /* smallSphere.tga */,
+				05B28CFD24CAE55300A5D348 /* circle.tga */,
+				05B28CF924CAE30700A5D348 /* crackling_paint01.tga */,
 				D681B0E81FD02EC20025EA29 /* Marble.tga */,
 				D681B0E91FD02EC20025EA29 /* Marslike.tga */,
 				D681B0EA1FD02EC20025EA29 /* MoonLike.tga */,
+				05B28D0124CAE5FA00A5D348 /* floor.tga */,
+				05B28D0424CAE6D000A5D348 /* floor_01.tga */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,6 +300,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -311,6 +326,10 @@
 				D681B0EC1FD02EC20025EA29 /* Marslike.tga in Resources */,
 				D681B0ED1FD02EC20025EA29 /* MoonLike.tga in Resources */,
 				D681B0EB1FD02EC20025EA29 /* Marble.tga in Resources */,
+				05B28D0224CAE5FB00A5D348 /* floor.tga in Resources */,
+				05B28CFA24CAE30700A5D348 /* crackling_paint01.tga in Resources */,
+				05B28D0524CAE6D000A5D348 /* floor_01.tga in Resources */,
+				05B28CFE24CAE55300A5D348 /* circle.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
