@@ -14,8 +14,9 @@
  let ScreenW = UIScreen.main.bounds.size.width
 
  struct CCVertex {
-     var positionCoord: GLKVector3
-     var textureCoord: GLKVector2
+    var positionCoord: GLKVector3
+    var textureCoord: GLKVector2
+    var normal: GLKVector3
  }
 
  class ViewController: UIViewController{
@@ -32,7 +33,7 @@
      var effect: GLKBaseEffect!
      
      lazy var vertices: UnsafeMutablePointer<CCVertex> = {
-         let verticesSize = MemoryLayout<CCVertex>.size*kVertexCount
+         let verticesSize = MemoryLayout<CCVertex>.stride*kVertexCount
          let vertices = UnsafeMutablePointer<CCVertex>.allocate(capacity: verticesSize)
          return vertices
      }()
@@ -81,82 +82,95 @@
          effect = GLKBaseEffect()
          effect.texture2d0.name = textureInfo.name
          effect.texture2d0.target = GLKTextureTarget(rawValue: textureInfo.target)!
+        
+//        设置光照
+        effect.light0.enabled = GLboolean(GL_TRUE)
+//        漫反射颜色
+        effect.light0.diffuseColor = GLKVector4Make(1, 1, 1, 1)
+//        光源位置
+        effect.light0.position = GLKVector4Make(-0.5, -0.5, 5, 1)
      }
      
      
      fileprivate func setupVertex(){
          
          //1、创建顶点数组
-         self.vertices[0] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[1] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 0)))
-        self.vertices[2] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
+        self.vertices[0] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, 0, 1)))
+        self.vertices[1] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, 0, 1)))
+        self.vertices[2] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, 0, 1)))
 
-        self.vertices[3] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 0)))
-        self.vertices[4] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[5] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[3] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, 0, 1)))
+        self.vertices[4] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, 0, 1)))
+        self.vertices[5] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, 0, 1)))
         
         // 上面
-        self.vertices[6] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[7] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[8] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[6] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, 1, 0)))
+        self.vertices[7] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, 1, 0)))
+        self.vertices[8] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, 1, 0)))
         
-        self.vertices[9] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[10] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
-        self.vertices[11] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
+        self.vertices[9] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, 1, 0)))
+        self.vertices[10] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, 1, 0)))
+        self.vertices[11] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, 1, 0)))
 
         // 下面
-        self.vertices[12] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[13] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[14] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[12] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, -1, 0)))
+        self.vertices[13] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, -1, 0)))
+        self.vertices[14] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, -1, 0)))
         
-        self.vertices[15] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[16] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
-        self.vertices[17] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
+        self.vertices[15] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, -1, 0)))
+        self.vertices[16] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, -1, 0)))
+        self.vertices[17] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, -1, 0)))
 
         // 左面
-        self.vertices[18] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[19] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[20] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[18] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (-1, 0, 0)))
+        self.vertices[19] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (-1, 0, 0)))
+        self.vertices[20] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (-1, 0, 0)))
         
-        self.vertices[21] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[22] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
-        self.vertices[23] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
+        self.vertices[21] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (-1, 0, 0)))
+        self.vertices[22] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (-1, 0, 0)))
+        self.vertices[23] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (-1, 0, 0)))
 
         // 右面
-        self.vertices[24] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[25] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[26] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[24] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, 0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (1, 0, 0)))
+        self.vertices[25] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (1, 0, 0)))
+        self.vertices[26] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (1, 0, 0)))
         
-        self.vertices[27] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[28] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
-        self.vertices[29] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
+        self.vertices[27] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, 0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (1, 0, 0)))
+        self.vertices[28] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (1, 0, 0)))
+        self.vertices[29] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (1, 0, 0)))
 
         // 后面
-        self.vertices[30] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (0, 1)))
-        self.vertices[31] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
-        self.vertices[32] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 1)))
+        self.vertices[30] = CCVertex(positionCoord: GLKVector3(v: (-0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (0, 1)), normal: GLKVector3(v: (0, 0, -1)))
+        self.vertices[31] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, 0, -1)))
+        self.vertices[32] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, 0, -1)))
         
-        self.vertices[33] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)))
-        self.vertices[34] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 1)))
-        self.vertices[35] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)))
+        self.vertices[33] = CCVertex(positionCoord: GLKVector3(v: (-0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (0, 0)), normal: GLKVector3(v: (0, 0, -1)))
+        self.vertices[34] = CCVertex(positionCoord: GLKVector3(v: (0.5, 0.5, -0.5)), textureCoord: GLKVector2(v: (1, 1)), normal: GLKVector3(v: (0, 0, -1)))
+        self.vertices[35] = CCVertex(positionCoord: GLKVector3(v: (0.5, -0.5, -0.5)), textureCoord: GLKVector2(v: (1, 0)), normal: GLKVector3(v: (0, 0, -1)))
          
          //2、拷贝到顶点缓冲区
          glGenBuffers(1, &vertexBuffer)
  //        绑定顶点缓冲区
          glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
  //        coppy顶点数据
-         glBufferData(GLenum(GL_ARRAY_BUFFER), MemoryLayout<CCVertex>.size*kVertexCount, vertices, GLenum(GL_STATIC_DRAW))
+         glBufferData(GLenum(GL_ARRAY_BUFFER), MemoryLayout<CCVertex>.stride*kVertexCount, vertices, GLenum(GL_STATIC_DRAW))
          
          
          //3、打开通道（需要打开两次）
  //        oc中的sizeof，在swift中需要使用 GLsizei(MemoryLayout<CGFloat>.size * 5)
  //        swift 指针：UnsafeMutablePointer<GLubyte>
          glEnableVertexAttribArray(GLuint(GLKVertexAttrib.position.rawValue))
-          glVertexAttribPointer(GLuint(GLKVertexAttrib.position.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<CCVertex>.size), UnsafeMutableRawPointer(bitPattern: 0))
+          glVertexAttribPointer(GLuint(GLKVertexAttrib.position.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<CCVertex>.stride), UnsafeMutableRawPointer(bitPattern: 0))
          
          glEnableVertexAttribArray(GLuint(GLKVertexAttrib.texCoord0.rawValue))
          //这里加4的原因是因为苹果对部分包含vector类型数据的结构体加了一个padding,此处这个padding等于4个字节。CCVertex占24个字节，而不是5个float所占的20个字节
-         glVertexAttribPointer(GLuint(GLKVertexAttrib.texCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<CCVertex>.size), UnsafeMutableRawPointer(bitPattern: MemoryLayout<GLKVector3>.size+4))
+         glVertexAttribPointer(GLuint(GLKVertexAttrib.texCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<CCVertex>.stride), UnsafeMutableRawPointer(bitPattern: MemoryLayout<GLKVector3>.stride+4))
+
+//      光照
+        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.normal.rawValue))
+        //这里加4的原因是因为苹果对部分包含vector类型数据的结构体加了一个padding,此处这个padding等于4个字节。CCVertex占24个字节，而不是5个float所占的20个字节
+        print("size: \(MemoryLayout<CCVertex>.size) \(MemoryLayout<CCVertex>.stride)")
+        glVertexAttribPointer(GLuint(GLKVertexAttrib.normal.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<CCVertex>.stride), UnsafeMutableRawPointer(bitPattern: MemoryLayout<GLKVector3>.stride+MemoryLayout<GLKVector2>.stride+8))
          
      }
      
@@ -169,7 +183,7 @@
          angle = (angle + 5).truncatingRemainder(dividingBy: 360)
          
  //        修改矩阵堆栈
-         effect.transform.modelviewMatrix = GLKMatrix4MakeRotation(GLKMathDegreesToRadians(angle), 0.3, 1, -0.7)
+         effect.transform.modelviewMatrix = GLKMatrix4MakeRotation(GLKMathDegreesToRadians(angle), 0.3, 1, 0.7)
          
  //        重新渲染
          glkView.display()
