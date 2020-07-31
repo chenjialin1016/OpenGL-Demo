@@ -279,6 +279,7 @@
        //1. rotate等于shaderv.vsh中的uniform属性，rotateMatrix
     
     GLuint rotate = glGetUniformLocation(self.myPrograme, "rotateMatrix");
+    GLuint scale = glGetUniformLocation(self.myPrograme, "scaleMatrix");
     
     //2.获取渲旋转的弧度
     float radius = 180 * 3.14159f / 180.0f;
@@ -291,18 +292,44 @@
      参考Z轴旋转矩阵
      */
     
-    GLfloat zRotation[16] = {
-        c, -s, 0, 0,
-        s, c, 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1,
-    };
+//    GLfloat zRotation[16] = {
+//        c, -s, 0, 0,
+//        s, c, 0, 0,
+//        0, 0, 1, 0,
+//        0, 0, 0, 1,
+//    };
+    
+//    ------------修改方案1
 //    GLfloat zRotation[16] = {
 //        -c, -s, 0, 0,
 //        s, c, 0, 0,
 //        0, 0, 1, 0,
 //        0, 0, 0, 1,
 //    };
+    
+//    （方案1的矩阵 = 方案2的两矩阵乘积）
+//    GLfloat zRotation[16] = {
+//        -c, -s, 0, 0,
+//        -s, c, 0, 0,
+//        0, 0, 1, 0,
+//        0, 0, 0, 1,
+//    };
+    
+    
+//    -------------修改方案2
+    GLfloat zRotation[16] = {
+        c, -s, 0, 0,
+        s, c, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,
+    };
+    
+    GLfloat scaleMartix[16] = {
+        -1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,
+    };
     
 
     for (int i = 0; i < 16; ) {
@@ -319,6 +346,7 @@
      value : 指针
      */
     glUniformMatrix4fv(rotate, 1, GL_FALSE, zRotation);
+    glUniformMatrix4fv(scale, 1, GL_FALSE, scaleMartix);
     
 }
 
