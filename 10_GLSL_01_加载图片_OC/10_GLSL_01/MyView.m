@@ -255,6 +255,7 @@
 //    (3).设置读取方式
     GLuint textColor = glGetAttribLocation(self.myPrograme, "textCoordinate");
     glEnableVertexAttribArray(textColor);
+//    ！！！！！直接写null+3图片显示有问题，需要改为 (float *)NULL+3
     glVertexAttribPointer(textColor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (float *)NULL+3);
     
 //    10、加载纹理

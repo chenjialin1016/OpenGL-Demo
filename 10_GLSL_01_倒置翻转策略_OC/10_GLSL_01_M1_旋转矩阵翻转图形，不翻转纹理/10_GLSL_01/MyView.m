@@ -290,12 +290,25 @@
     /*
      参考Z轴旋转矩阵
      */
+    
     GLfloat zRotation[16] = {
         c, -s, 0, 0,
         s, c, 0, 0,
         0, 0, 1, 0,
         0, 0, 0, 1,
     };
+//    GLfloat zRotation[16] = {
+//        -c, -s, 0, 0,
+//        s, c, 0, 0,
+//        0, 0, 1, 0,
+//        0, 0, 0, 1,
+//    };
+    
+
+    for (int i = 0; i < 16; ) {
+        NSLog(@"%.1f %.1f %.1f %.1f", zRotation[i], zRotation[i+1], zRotation[i+1], zRotation[i+3]);
+        i += 4;
+    }
     
     //5.设置旋转矩阵
     /*

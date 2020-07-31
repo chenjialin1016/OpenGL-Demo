@@ -318,13 +318,13 @@
     
 //    !!!!!!!!!!将图片翻转！！！！！！！！！！
     //围绕x、y平移
-    CGContextTranslateCTM(spriteContext, rect.origin.x, rect.origin.y);
+//    CGContextTranslateCTM(spriteContext, rect.origin.x, rect.origin.y);
     //围绕y平移
     CGContextTranslateCTM(spriteContext, 0, rect.size.height);
     //x⽅向不变 y⽅向沿着画布⾃己的 坐标系对应的y轴渲染
     CGContextScaleCTM(spriteContext, 1.0, -1.0);//翻转
     //相对于画布，在自己的坐标系上画图
-    CGContextTranslateCTM(spriteContext, -rect.origin.x, -rect.origin.y);
+//    CGContextTranslateCTM(spriteContext, -rect.origin.x, -rect.origin.y);
     CGContextDrawImage(spriteContext, rect, spriteImage);
     
 //    7、画图完毕就释放上下文
