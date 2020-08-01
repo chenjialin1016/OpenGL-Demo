@@ -48,6 +48,8 @@
     CATransform3D perspective = CATransform3DIdentity;
 //    为什么加这句？？去掉也是可以的
 //    核心动画设置透视投影
+    //m34其实就是设置 透视投影的near 和 far参数
+    //参考链接：https://www.jianshu.com/p/3dd14cfbdc53
     perspective.m34 = -1.0 / 500.0;
 //    围绕x，y分别旋转，M_PI_4 = π/4，π=180°
 //      x:顺时针旋转45°，y：顺时针旋转45°
