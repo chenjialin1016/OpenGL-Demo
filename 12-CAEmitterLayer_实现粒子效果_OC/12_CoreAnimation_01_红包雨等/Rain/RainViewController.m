@@ -80,7 +80,7 @@
 
 - (void)bigOrSmallRain:(UIButton*)sender{
     
-    NSInteger rate = 1;
+    NSInteger rate = 5;
     CGFloat scale = 0.05;
     
     if (sender.tag == 100) {

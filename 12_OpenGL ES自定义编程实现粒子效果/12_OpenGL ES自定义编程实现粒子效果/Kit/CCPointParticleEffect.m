@@ -456,7 +456,7 @@ typedef enum {
     //将fragment shader 附加到程序.
     glAttachShader(program, fragShader);
     
-    //绑定属性位置
+    //绑定属性位置 作用相当于glGetAttribLocation，只能在attribute中这么使用
     //这需要在链接之前完成.
     /*
      应用程序通过glBindAttribLocation把“顶点属性索引”绑定到“顶点属性名”，glBindAttribLocation在program被link之前执行。
