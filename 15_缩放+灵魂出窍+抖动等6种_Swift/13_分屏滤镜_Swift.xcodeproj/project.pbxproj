@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		051F3C6524DEA55A009190C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F3C6424DEA55A009190C0 /* AppDelegate.swift */; };
+		051F3C6724DEA55A009190C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F3C6624DEA55A009190C0 /* SceneDelegate.swift */; };
+		051F3C6924DEA55A009190C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F3C6824DEA55A009190C0 /* ViewController.swift */; };
+		051F3C6C24DEA55A009190C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 051F3C6A24DEA55A009190C0 /* Main.storyboard */; };
+		051F3C6E24DEA560009190C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051F3C6D24DEA560009190C0 /* Assets.xcassets */; };
+		051F3C7124DEA560009190C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 051F3C6F24DEA560009190C0 /* LaunchScreen.storyboard */; };
+		051F3C7924DEC69B009190C0 /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F3C7824DEC69B009190C0 /* FilterBar.swift */; };
+		051F3C7B24DEC6CA009190C0 /* FilterBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F3C7A24DEC6CA009190C0 /* FilterBarCell.swift */; };
+		051F3C7E24DFFD30009190C0 /* mouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051F3C7D24DFFD30009190C0 /* mouse.jpg */; };
+		05FE88A924E5AD8E000EC2FC /* ShineWhite.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889524E5AD8E000EC2FC /* ShineWhite.vsh */; };
+		05FE88AA24E5AD8E000EC2FC /* ShineWhite.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889624E5AD8E000EC2FC /* ShineWhite.fsh */; };
+		05FE88AB24E5AD8E000EC2FC /* Scale.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889824E5AD8E000EC2FC /* Scale.vsh */; };
+		05FE88AC24E5AD8E000EC2FC /* Scale.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889924E5AD8E000EC2FC /* Scale.fsh */; };
+		05FE88AD24E5AD8E000EC2FC /* Shake.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889B24E5AD8E000EC2FC /* Shake.fsh */; };
+		05FE88AE24E5AD8E000EC2FC /* Shake.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889C24E5AD8E000EC2FC /* Shake.vsh */; };
+		05FE88AF24E5AD8E000EC2FC /* SoulOut.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889E24E5AD8E000EC2FC /* SoulOut.vsh */; };
+		05FE88B024E5AD8E000EC2FC /* SoulOut.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE889F24E5AD8E000EC2FC /* SoulOut.fsh */; };
+		05FE88B124E5AD8E000EC2FC /* Glitch.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A124E5AD8E000EC2FC /* Glitch.vsh */; };
+		05FE88B224E5AD8E000EC2FC /* Glitch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A224E5AD8E000EC2FC /* Glitch.fsh */; };
+		05FE88B324E5AD8E000EC2FC /* Vertigo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A424E5AD8E000EC2FC /* Vertigo.fsh */; };
+		05FE88B424E5AD8E000EC2FC /* Vertigo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A524E5AD8E000EC2FC /* Vertigo.vsh */; };
+		05FE88B524E5AD8E000EC2FC /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A724E5AD8E000EC2FC /* Normal.fsh */; };
+		05FE88B624E5AD8E000EC2FC /* Normal.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 05FE88A824E5AD8E000EC2FC /* Normal.vsh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		051F3C6124DEA55A009190C0 /* 13_分屏滤镜_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "13_分屏滤镜_Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		051F3C6424DEA55A009190C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		051F3C6624DEA55A009190C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		051F3C6824DEA55A009190C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		051F3C6B24DEA55A009190C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		051F3C6D24DEA560009190C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		051F3C7024DEA560009190C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		051F3C7224DEA560009190C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		051F3C7824DEC69B009190C0 /* FilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBar.swift; sourceTree = "<group>"; };
+		051F3C7A24DEC6CA009190C0 /* FilterBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBarCell.swift; sourceTree = "<group>"; };
+		051F3C7D24DFFD30009190C0 /* mouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mouse.jpg; sourceTree = "<group>"; };
+		05FE889524E5AD8E000EC2FC /* ShineWhite.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShineWhite.vsh; sourceTree = "<group>"; };
+		05FE889624E5AD8E000EC2FC /* ShineWhite.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShineWhite.fsh; sourceTree = "<group>"; };
+		05FE889824E5AD8E000EC2FC /* Scale.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Scale.vsh; sourceTree = "<group>"; };
+		05FE889924E5AD8E000EC2FC /* Scale.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Scale.fsh; sourceTree = "<group>"; };
+		05FE889B24E5AD8E000EC2FC /* Shake.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shake.fsh; sourceTree = "<group>"; };
+		05FE889C24E5AD8E000EC2FC /* Shake.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shake.vsh; sourceTree = "<group>"; };
+		05FE889E24E5AD8E000EC2FC /* SoulOut.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SoulOut.vsh; sourceTree = "<group>"; };
+		05FE889F24E5AD8E000EC2FC /* SoulOut.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SoulOut.fsh; sourceTree = "<group>"; };
+		05FE88A124E5AD8E000EC2FC /* Glitch.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Glitch.vsh; sourceTree = "<group>"; };
+		05FE88A224E5AD8E000EC2FC /* Glitch.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Glitch.fsh; sourceTree = "<group>"; };
+		05FE88A424E5AD8E000EC2FC /* Vertigo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Vertigo.fsh; sourceTree = "<group>"; };
+		05FE88A524E5AD8E000EC2FC /* Vertigo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Vertigo.vsh; sourceTree = "<group>"; };
+		05FE88A724E5AD8E000EC2FC /* Normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.fsh; sourceTree = "<group>"; };
+		05FE88A824E5AD8E000EC2FC /* Normal.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.vsh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		051F3C5E24DEA55A009190C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		051F3C5824DEA55A009190C0 = {
+			isa = PBXGroup;
+			children = (
+				051F3C6324DEA55A009190C0 /* 13_分屏滤镜_Swift */,
+				051F3C6224DEA55A009190C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		051F3C6224DEA55A009190C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				051F3C6124DEA55A009190C0 /* 13_分屏滤镜_Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		051F3C6324DEA55A009190C0 /* 13_分屏滤镜_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				051F3C6424DEA55A009190C0 /* AppDelegate.swift */,
+				051F3C6624DEA55A009190C0 /* SceneDelegate.swift */,
+				051F3C6824DEA55A009190C0 /* ViewController.swift */,
+				051F3C7D24DFFD30009190C0 /* mouse.jpg */,
+				05FE889324E5AD8E000EC2FC /* Filter */,
+				051F3C7C24DEC6D0009190C0 /* Tool */,
+				051F3C6A24DEA55A009190C0 /* Main.storyboard */,
+				051F3C6D24DEA560009190C0 /* Assets.xcassets */,
+				051F3C6F24DEA560009190C0 /* LaunchScreen.storyboard */,
+				051F3C7224DEA560009190C0 /* Info.plist */,
+			);
+			path = "13_分屏滤镜_Swift";
+			sourceTree = "<group>";
+		};
+		051F3C7C24DEC6D0009190C0 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				051F3C7824DEC69B009190C0 /* FilterBar.swift */,
+				051F3C7A24DEC6CA009190C0 /* FilterBarCell.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		05FE889324E5AD8E000EC2FC /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				05FE889424E5AD8E000EC2FC /* ShineWhite */,
+				05FE889724E5AD8E000EC2FC /* Scale */,
+				05FE889A24E5AD8E000EC2FC /* Shake */,
+				05FE889D24E5AD8E000EC2FC /* SoulOut */,
+				05FE88A024E5AD8E000EC2FC /* Glitch */,
+				05FE88A324E5AD8E000EC2FC /* Vertigo */,
+				05FE88A624E5AD8E000EC2FC /* normal */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		05FE889424E5AD8E000EC2FC /* ShineWhite */ = {
+			isa = PBXGroup;
+			children = (
+				05FE889524E5AD8E000EC2FC /* ShineWhite.vsh */,
+				05FE889624E5AD8E000EC2FC /* ShineWhite.fsh */,
+			);
+			path = ShineWhite;
+			sourceTree = "<group>";
+		};
+		05FE889724E5AD8E000EC2FC /* Scale */ = {
+			isa = PBXGroup;
+			children = (
+				05FE889824E5AD8E000EC2FC /* Scale.vsh */,
+				05FE889924E5AD8E000EC2FC /* Scale.fsh */,
+			);
+			path = Scale;
+			sourceTree = "<group>";
+		};
+		05FE889A24E5AD8E000EC2FC /* Shake */ = {
+			isa = PBXGroup;
+			children = (
+				05FE889B24E5AD8E000EC2FC /* Shake.fsh */,
+				05FE889C24E5AD8E000EC2FC /* Shake.vsh */,
+			);
+			path = Shake;
+			sourceTree = "<group>";
+		};
+		05FE889D24E5AD8E000EC2FC /* SoulOut */ = {
+			isa = PBXGroup;
+			children = (
+				05FE889E24E5AD8E000EC2FC /* SoulOut.vsh */,
+				05FE889F24E5AD8E000EC2FC /* SoulOut.fsh */,
+			);
+			path = SoulOut;
+			sourceTree = "<group>";
+		};
+		05FE88A024E5AD8E000EC2FC /* Glitch */ = {
+			isa = PBXGroup;
+			children = (
+				05FE88A124E5AD8E000EC2FC /* Glitch.vsh */,
+				05FE88A224E5AD8E000EC2FC /* Glitch.fsh */,
+			);
+			path = Glitch;
+			sourceTree = "<group>";
+		};
+		05FE88A324E5AD8E000EC2FC /* Vertigo */ = {
+			isa = PBXGroup;
+			children = (
+				05FE88A424E5AD8E000EC2FC /* Vertigo.fsh */,
+				05FE88A524E5AD8E000EC2FC /* Vertigo.vsh */,
+			);
+			path = Vertigo;
+			sourceTree = "<group>";
+		};
+		05FE88A624E5AD8E000EC2FC /* normal */ = {
+			isa = PBXGroup;
+			children = (
+				05FE88A724E5AD8E000EC2FC /* Normal.fsh */,
+				05FE88A824E5AD8E000EC2FC /* Normal.vsh */,
+			);
+			path = normal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		051F3C6024DEA55A009190C0 /* 13_分屏滤镜_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051F3C7524DEA560009190C0 /* Build configuration list for PBXNativeTarget "13_分屏滤镜_Swift" */;
+			buildPhases = (
+				051F3C5D24DEA55A009190C0 /* Sources */,
+				051F3C5E24DEA55A009190C0 /* Frameworks */,
+				051F3C5F24DEA55A009190C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "13_分屏滤镜_Swift";
+			productName = "13_分屏滤镜_Swift";
+			productReference = 051F3C6124DEA55A009190C0 /* 13_分屏滤镜_Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		051F3C5924DEA55A009190C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = CJL;
+				TargetAttributes = {
+					051F3C6024DEA55A009190C0 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
+			};
+			buildConfigurationList = 051F3C5C24DEA55A009190C0 /* Build configuration list for PBXProject "13_分屏滤镜_Swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 051F3C5824DEA55A009190C0;
+			productRefGroup = 051F3C6224DEA55A009190C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				051F3C6024DEA55A009190C0 /* 13_分屏滤镜_Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		051F3C5F24DEA55A009190C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05FE88AC24E5AD8E000EC2FC /* Scale.fsh in Resources */,
+				051F3C7124DEA560009190C0 /* LaunchScreen.storyboard in Resources */,
+				05FE88B624E5AD8E000EC2FC /* Normal.vsh in Resources */,
+				05FE88AF24E5AD8E000EC2FC /* SoulOut.vsh in Resources */,
+				051F3C7E24DFFD30009190C0 /* mouse.jpg in Resources */,
+				051F3C6E24DEA560009190C0 /* Assets.xcassets in Resources */,
+				05FE88B024E5AD8E000EC2FC /* SoulOut.fsh in Resources */,
+				05FE88AE24E5AD8E000EC2FC /* Shake.vsh in Resources */,
+				05FE88B124E5AD8E000EC2FC /* Glitch.vsh in Resources */,
+				05FE88AA24E5AD8E000EC2FC /* ShineWhite.fsh in Resources */,
+				05FE88A924E5AD8E000EC2FC /* ShineWhite.vsh in Resources */,
+				05FE88B424E5AD8E000EC2FC /* Vertigo.vsh in Resources */,
+				05FE88AB24E5AD8E000EC2FC /* Scale.vsh in Resources */,
+				05FE88B524E5AD8E000EC2FC /* Normal.fsh in Resources */,
+				05FE88B324E5AD8E000EC2FC /* Vertigo.fsh in Resources */,
+				051F3C6C24DEA55A009190C0 /* Main.storyboard in Resources */,
+				05FE88B224E5AD8E000EC2FC /* Glitch.fsh in Resources */,
+				05FE88AD24E5AD8E000EC2FC /* Shake.fsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		051F3C5D24DEA55A009190C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051F3C6924DEA55A009190C0 /* ViewController.swift in Sources */,
+				051F3C7924DEC69B009190C0 /* FilterBar.swift in Sources */,
+				051F3C7B24DEC6CA009190C0 /* FilterBarCell.swift in Sources */,
+				051F3C6524DEA55A009190C0 /* AppDelegate.swift in Sources */,
+				051F3C6724DEA55A009190C0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		051F3C6A24DEA55A009190C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				051F3C6B24DEA55A009190C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		051F3C6F24DEA560009190C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				051F3C7024DEA560009190C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		051F3C7324DEA560009190C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		051F3C7424DEA560009190C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		051F3C7624DEA560009190C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "13_分屏滤镜_Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eb.-3------Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		051F3C7724DEA560009190C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "13_分屏滤镜_Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eb.-3------Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		051F3C5C24DEA55A009190C0 /* Build configuration list for PBXProject "13_分屏滤镜_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051F3C7324DEA560009190C0 /* Debug */,
+				051F3C7424DEA560009190C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		051F3C7524DEA560009190C0 /* Build configuration list for PBXNativeTarget "13_分屏滤镜_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051F3C7624DEA560009190C0 /* Debug */,
+				051F3C7724DEA560009190C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 051F3C5924DEA55A009190C0 /* Project object */;
+}
