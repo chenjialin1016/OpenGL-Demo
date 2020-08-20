@@ -125,7 +125,7 @@ typedef struct {
     
 //    1、根据屏幕显示的图片，重新获取顶点 & 纹理坐标
 //    拉伸--显示：baseEffect、图片获取--存储：GLSL
-//    滤镜链：顶点&纹理坐标--GLSL绘制图片--帧缓存区--纹理（即新的图片），当次处理的结果作为下一次处理的初始图片
+//    ：顶点&纹理坐标--GLSL绘制图片--帧缓存区--纹理（即新的图片），当次处理的结果作为下一次处理的初始图片
     [self resetTextureWithOriginWidth:self.currentImageSize.width originHeight:self.currentImageSize.height topY:self.currentTextureStartY bottomY:self.currentTextureEndY newHeight:self.currentNewHeight];
     
 //    2、绑定帧缓存区
